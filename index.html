@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas | Software Engineer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        graphite: { DEFAULT: '#171717', light: '#262626', lighter: '#333333' },
+                        copper: { DEFAULT: '#C07F45', light: '#D49A6A', dark: '#935D2E' },
+                        olive: { DEFAULT: '#556B2F', light: '#6B8E23', dark: '#3D4D22' },
+                        moss: { DEFAULT: '#4A5D23', light: '#5C742C' }
+                    },
+                    boxShadow: {
+                        'glow-copper': '0 0 20px -5px rgba(192, 127, 69, 0.3)',
+                        'card': '0 10px 30px -10px rgba(0, 0, 0, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="engineering-grid antialiased selection:bg-copper selection:text-white relative overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 glass-card border-b border-graphite-lighter/50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading font-bold text-xl tracking-wider flex items-center gap-2">
+                <i class="ph ph-cpu text-copper text-2xl"></i>
+                <span>DEV<span class="text-copper">.</span>ENG</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-mono text-sm text-zinc-400">
+                <a href="#sobre" class="hover:text-copper transition-colors" data-i18n="nav.about"></a>
+                <a href="#experiencia" class="hover:text-copper transition-colors" data-i18n="nav.experience"></a>
+                <a href="#habilidades" class="hover:text-copper transition-colors" data-i18n="nav.skills"></a>
+                <a href="#projetos" class="hover:text-copper transition-colors" data-i18n="nav.projects"></a>
+                <a href="#certificados" class="hover:text-copper transition-colors" data-i18n="nav.certificates"></a>
+                <div class="flex items-center gap-1 pl-4 ml-2 border-l border-graphite-lighter" role="group" aria-label="Idioma / Language">
+                    <button type="button" data-lang-btn="pt" class="lang-btn">PT</button>
+                    <button type="button" data-lang-btn="en" class="lang-btn">EN</button>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 md:hidden">
+                <div class="flex items-center gap-1" role="group" aria-label="Idioma / Language">
+                    <button type="button" data-lang-btn="pt" class="lang-btn">PT</button>
+                    <button type="button" data-lang-btn="en" class="lang-btn">EN</button>
+                </div>
+                <button id="mobile-menu-btn" class="text-zinc-400 hover:text-white transition-colors">
+                    <i id="mobile-menu-icon" class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-graphite/95 backdrop-blur-md border-b border-graphite-lighter w-full absolute top-full left-0 shadow-xl">
+            <div class="flex flex-col px-6 py-6 gap-6 font-mono text-sm text-zinc-300">
+                <a href="#sobre" class="mobile-link hover:text-copper transition-colors flex items-center gap-2"><i class="ph ph-user text-copper"></i> <span data-i18n="nav.about"></span></a>
+                <a href="#experiencia" class="mobile-link hover:text-copper transition-colors flex items-center gap-2"><i class="ph ph-briefcase text-copper"></i> <span data-i18n="nav.experience"></span></a>
+                <a href="#habilidades" class="mobile-link hover:text-copper transition-colors flex items-center gap-2"><i class="ph ph-wrench text-copper"></i> <span data-i18n="nav.skills"></span></a>
+                <a href="#projetos" class="mobile-link hover:text-copper transition-colors flex items-center gap-2"><i class="ph ph-kanban text-copper"></i> <span data-i18n="nav.projects"></span></a>
+                <a href="#certificados" class="mobile-link hover:text-copper transition-colors flex items-center gap-2"><i class="ph ph-certificate text-copper"></i> <span data-i18n="nav.certificates"></span></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO (estático) -->
+    <main class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 max-w-7xl mx-auto min-h-screen flex flex-col justify-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="fade-in-up z-10" style="animation-delay: 0.1s;">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-graphite-light border border-graphite-lighter mb-6 font-mono text-xs text-olive-light">
+                    <span class="w-2 h-2 rounded-full bg-olive animate-pulse"></span>
+                    <span data-i18n="hero.badge"></span>
+                </div>
+                <h1 class="font-heading text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    <span data-i18n="hero.title1"></span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-zinc-100 to-zinc-500" data-i18n="hero.title2"></span>
+                </h1>
+                <p class="text-xl md:text-2xl text-zinc-400 font-light mb-10 leading-relaxed border-l-2 border-copper pl-6" data-i18n="hero.quote"></p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projetos" class="px-6 py-3 bg-copper hover:bg-copper-light text-graphite-light font-medium rounded transition-all duration-300 flex items-center gap-2 shadow-glow-copper">
+                        <i class="ph ph-kanban"></i> <span data-i18n="hero.btnProjects"></span>
+                    </a>
+                    <a href="assets/cv/Lucas_Gabriel_Costa_CV.pdf" class="px-6 py-3 glass-card hover:bg-graphite-lighter text-zinc-200 font-medium rounded transition-all duration-300 flex items-center gap-2 border border-zinc-700">
+                        <i class="ph ph-download-simple"></i> <span data-i18n="hero.btnCV"></span>
+                    </a>
+                    <a href="https://github.com/rxluk" class="w-12 h-12 flex justify-center items-center rounded glass-card hover:text-copper hover:border-copper transition-all duration-300">
+                        <i class="ph ph-github-logo text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rxluk/" class="w-12 h-12 flex justify-center items-center rounded glass-card hover:text-blue-400 hover:border-blue-400 transition-all duration-300">
+                        <i class="ph ph-linkedin-logo text-xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative w-full h-[400px] lg:h-[500px] fade-in-up flex justify-center items-center" style="animation-delay: 0.3s;">
+                <div class="absolute inset-0 bg-gradient-to-tr from-graphite/50 to-transparent rounded-full blur-3xl -z-10"></div>
+                <svg viewBox="0 0 500 500" class="w-full h-full opacity-80" xmlns="http://www.w3.org/2000/svg">
+                    <g stroke="#333" stroke-width="1" fill="none">
+                        <path d="M50 400 L250 300 L450 400 L250 500 Z" fill="rgba(38,38,38,0.5)"/>
+                        <path d="M50 400 L250 300 M100 425 L300 325 M150 450 L350 350" stroke-dasharray="4 4"/>
+                    </g>
+                    <g stroke="#E5E5E5" stroke-width="2" fill="none" class="svg-draw">
+                        <rect x="150" y="100" width="200" height="130" rx="4"/>
+                        <path d="M100 230 L400 230 L420 250 L80 250 Z" fill="#262626"/>
+                        <line x1="170" y1="130" x2="250" y2="130" stroke="#C07F45"/>
+                        <line x1="170" y1="150" x2="300" y2="150" stroke="#556B2F"/>
+                        <line x1="170" y1="170" x2="220" y2="170" stroke="#E5E5E5"/>
+                    </g>
+                    <g transform="translate(320, 260) rotate(-15)">
+                        <rect x="0" y="0" width="80" height="120" rx="4" fill="#1C1C1C" stroke="#556B2F" stroke-width="2"/>
+                        <rect x="20" y="20" width="40" height="40" fill="#262626" stroke="#C07F45"/>
+                        <circle cx="10" cy="10" r="3" fill="#C07F45"/>
+                        <circle cx="70" cy="10" r="3" fill="#C07F45"/>
+                        <circle cx="10" cy="110" r="3" fill="#C07F45"/>
+                        <circle cx="70" cy="110" r="3" fill="#C07F45"/>
+                        <path d="M0 15 h-5 m5 10 h-5 m5 10 h-5 m5 10 h-5 m5 10 h-5 m5 10 h-5" stroke="#E5E5E5" stroke-width="2"/>
+                        <path d="M80 15 h5 m-5 10 h5 m-5 10 h5 m-5 10 h5 m-5 10 h5 m-5 10 h5" stroke="#E5E5E5" stroke-width="2"/>
+                    </g>
+                    <g stroke="#C07F45" stroke-width="2" fill="none" transform="translate(100, 200)">
+                        <circle cx="30" cy="30" r="20"/>
+                        <circle cx="30" cy="30" r="8"/>
+                        <path d="M30 5 L30 10 M30 50 L30 55 M5 30 L10 30 M50 30 L55 30"/>
+                        <path d="M12 12 L16 16 M44 44 L48 48 M12 48 L16 44 M44 12 L48 16"/>
+                    </g>
+                    <g stroke="#556B2F" stroke-width="1.5">
+                        <circle cx="250" cy="50" r="4" fill="#556B2F"/>
+                        <circle cx="300" cy="80" r="4" fill="#556B2F"/>
+                        <circle cx="200" cy="90" r="4" fill="#556B2F"/>
+                        <line x1="250" y1="50" x2="300" y2="80"/>
+                        <line x1="250" y1="50" x2="200" y2="90"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </main>
+
+    <!-- SOBRE (dinâmico: about/index.html) -->
+    <section id="sobre" class="py-24 border-t border-graphite-lighter/30 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col gap-4 mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold flex items-center gap-4">
+                    <span class="text-copper font-mono text-xl block">01.</span> <span data-i18n="section.about.title"></span>
+                </h2>
+                <div class="h-px w-24 bg-copper"></div>
+            </div>
+            <div id="about-content" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-12 h-64 skeleton"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIÊNCIA (dinâmico: experiences/*/index.md) -->
+    <section id="experiencia" class="py-24 bg-graphite-light/20 relative">
+        <div class="max-w-4xl mx-auto px-6 relative">
+            <div class="flex flex-col gap-4 mb-16 text-center items-center">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold flex items-center gap-4 justify-center">
+                    <span class="text-copper font-mono text-xl block">02.</span> <span data-i18n="section.experience.title"></span>
+                </h2>
+                <div class="h-px w-24 bg-copper mx-auto"></div>
+            </div>
+            <div id="experience-timeline" class="relative timeline-line">
+                <div class="h-32 skeleton mb-4"></div>
+                <div class="h-32 skeleton"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HABILIDADES (estático) -->
+    <section id="habilidades" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col gap-4 mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold flex items-center gap-4">
+                    <span class="text-copper font-mono text-xl block">03.</span> <span data-i18n="section.skills.title"></span>
+                </h2>
+                <div class="h-px w-24 bg-copper"></div>
+                <p class="text-zinc-500 font-mono text-sm" data-i18n="section.skills.subtitle"></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-6 rounded border-t-4 border-t-copper md:col-span-2 lg:col-span-2">
+                    <h3 class="font-heading text-xl text-white mb-6 flex items-center gap-2">
+                        <i class="ph ph-terminal-window text-copper text-2xl"></i> <span>Backend & Architecture</span>
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-file-code"></i> Kotlin</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-coffee"></i> Java</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-leaf"></i> Spring Boot</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-plugs"></i> REST APIs</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">Microservices</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">Software Architecture</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">Design Patterns</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">JOOQ</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">Flyway</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">JUnit / Mockito</div>
+
+                    </div>
+                </div>
+
+
+                <div class="glass-card p-6 rounded border-t-4 border-t-olive">
+                    <h3 class="font-heading text-xl text-white mb-6 flex items-center gap-2">
+                        <i class="ph ph-database text-olive text-2xl"></i> <span>Data & Distributed Systems</span>
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-hard-drives"></i> PostgreSQL</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-file-sql"></i> SQL</div>
+
+                    </div>
+
+                    <div class="w-full h-px bg-graphite-lighter my-4"></div>
+
+                    <div class="grid grid-cols-2 gap-3">
+
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-database"></i> Redis</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-paper-plane-right"></i> RabbitMQ</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-queue"></i> Apache Kafka</div>
+
+                    </div>
+                </div>
+
+
+                <div class="glass-card p-6 rounded border-t-4 border-t-indigo-500">
+                    <h3 class="font-heading text-xl text-white mb-6 flex items-center gap-2">
+                        <i class="ph ph-brain text-indigo-500 text-2xl"></i> <span>Artificial Intelligence</span>
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-3">
+
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-chat-centered-text"></i> LLMs</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-graph"></i> Embeddings</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-magnifying-glass-plus"></i> RAG</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-robot"></i> Computer Vision</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">YOLOv8</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">OpenCV</div>
+
+                    </div>
+                </div>
+
+
+                <div class="glass-card p-6 rounded border-t-4 border-t-yellow-600">
+                    <h3 class="font-heading text-xl text-white mb-6 flex items-center gap-2">
+                        <i class="ph ph-circuitry text-yellow-600 text-2xl"></i> <span>Embedded Systems</span>
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-3">
+
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-cpu"></i> ESP32</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-cpu"></i> ESP8266</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-motherboard"></i> Raspberry Pi</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2">IoT</div>
+                        <div class="bg-graphite-light px-3 py-2 rounded text-sm font-mono flex items-center gap-2 col-span-2"><i class="ph ph-printer"></i> 3D Printing</div>
+
+                    </div>
+                </div>
+
+
+                <div class="glass-card p-6 rounded border-t-4 border-t-zinc-500">
+                    <h3 class="font-heading text-xl text-white mb-6 flex items-center gap-2">
+                        <i class="ph ph-wrench text-zinc-400 text-2xl"></i> <span>Infrastructure & Operations</span>
+                    </h3>
+
+                    <div class="flex flex-wrap gap-3">
+
+                        <div class="bg-graphite-light px-4 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-docker-logo"></i> Docker</div>
+                        <div class="bg-graphite-light px-4 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-git-branch"></i> Git / GitHub</div>
+                        <div class="bg-graphite-light px-4 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-linux-logo"></i> Linux</div>
+                        <div class="bg-graphite-light px-4 py-2 rounded text-sm font-mono flex items-center gap-2">Maven</div>
+                        <div class="bg-graphite-light px-4 py-2 rounded text-sm font-mono flex items-center gap-2"><i class="ph ph-terminal"></i> Shell Script</div>
+                        <div class="bg-graphite-light px-4 py-2 rounded text-sm font-mono flex items-center gap-2">CI/CD</div>
+                        <div class="bg-graphite-light px-4 py-2 rounded text-sm font-mono flex items-center gap-2">System Administration</div>
+
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- PROJETOS (dinâmico: projects/*/index.html + images/) -->
+    <section id="projetos" class="py-24 bg-graphite-light/10 border-y border-graphite-lighter/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col gap-4 mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold flex items-center gap-4">
+                    <span class="text-copper font-mono text-xl block">04.</span> <span data-i18n="section.projects.title"></span>
+                </h2>
+                <div class="h-px w-24 bg-copper"></div>
+                <p class="text-zinc-400 mt-2 max-w-2xl" data-i18n="section.projects.subtitle"></p>
+            </div>
+
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="h-80 skeleton"></div>
+                <div class="h-80 skeleton"></div>
+                <div class="h-80 skeleton"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICAÇÕES (estático) -->
+    <section id="certificados" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col gap-4 mb-16">
+                <h2 class="font-heading text-3xl md:text-5xl font-bold flex items-center gap-4">
+                    <span class="text-copper font-mono text-xl block">05.</span> <span data-i18n="section.certs.title"></span>
+                </h2>
+                <div class="h-px w-24 bg-copper"></div>
+                <p class="text-zinc-400 mt-2 max-w-2xl" data-i18n="section.certs.subtitle"></p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card p-6 rounded flex flex-col group border border-graphite-lighter hover:border-copper/50 transition-all hover:-translate-y-1 shadow-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 rounded bg-graphite-light border border-graphite-lighter flex justify-center items-center group-hover:border-copper/50 transition-colors">
+                            <i class="ph ph-coffee text-2xl text-copper"></i>
+                        </div>
+                        <span class="text-xs font-mono text-zinc-500 bg-graphite px-2 py-1 rounded border border-graphite-lighter">2024</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2 group-hover:text-copper transition-colors" data-i18n="certs.item1.title"></h3>
+                    <p class="text-sm text-zinc-400 mb-6 flex-grow" data-i18n="certs.item1.issuer"></p>
+                    <a href="https://www.udemy.com/certificate/UC-a6348770-6078-4de1-a5db-99ab23339219/" target="_blank" class="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-2 mt-auto">
+                        <span data-i18n="certs.viewCredential"></span> <i class="ph ph-arrow-right text-copper"></i>
+                    </a>
+                </div>
+
+                <div class="glass-card p-6 rounded flex flex-col group border border-graphite-lighter hover:border-copper/50 transition-all hover:-translate-y-1 shadow-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 rounded bg-graphite-light border border-graphite-lighter flex justify-center items-center group-hover:border-copper/50 transition-colors">
+                            <i class="ph ph-terminal text-2xl text-copper"></i>
+                        </div>
+                        <span class="text-xs font-mono text-zinc-500 bg-graphite px-2 py-1 rounded border border-graphite-lighter">2023</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2 group-hover:text-copper transition-colors" data-i18n="certs.item2.title"></h3>
+                    <p class="text-sm text-zinc-400 mb-6 flex-grow" data-i18n="certs.item2.issuer"></p>
+                    <a href="https://www.dio.me/certificate/77287C36/share" target="_blank" class="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-2 mt-auto">
+                        <span data-i18n="certs.viewCredential"></span> <i class="ph ph-arrow-right text-copper"></i>
+                    </a>
+                </div>
+
+                <div class="glass-card p-6 rounded flex-col group border border-graphite-lighter hover:border-copper/50 transition-all hover:-translate-y-1 shadow-card">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 rounded bg-graphite-light border border-graphite-lighter flex justify-center items-center group-hover:border-copper/50 transition-colors">
+                            <i class="ph ph-code text-2xl text-olive-light"></i>
+                        </div>
+                        <span class="text-xs font-mono text-zinc-500 bg-graphite px-2 py-1 rounded border border-graphite-lighter">2025</span>
+                    </div>
+                    <h3 class="font-bold text-lg text-white mb-2 group-hover:text-olive-light transition-colors" data-i18n="certs.item3.title"></h3>
+                    <p class="text-sm text-zinc-400 mb-6 flex-grow" data-i18n="certs.item3.issuer"></p>
+                    <a href="https://www.udemy.com/certificate/UC-26f1fac3-7d28-4f75-8f8d-1e7e5c2e1cdb/" target="_blank" class="text-sm font-mono text-zinc-300 hover:text-white flex items-center gap-2 mt-auto">
+                        <span data-i18n="certs.viewCredential"></span> <i class="ph ph-arrow-right text-olive-light"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANCADA (estático) -->
+    <section class="py-32 relative overflow-hidden border-t border-graphite-lighter/30">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-3xl font-bold mb-4" data-i18n="section.bench.title"></h2>
+                <p class="text-zinc-400 font-mono text-sm max-w-xl mx-auto" data-i18n="section.bench.subtitle"></p>
+            </div>
+
+            <div class="relative w-full max-w-4xl mx-auto min-h-[400px] flex justify-center items-center flex-wrap gap-4 md:gap-0">
+                <div class="md:absolute md:top-10 md:left-10 bg-[#fef3c7] text-zinc-900 p-5 rounded-sm shadow-xl md:-rotate-3 w-64 transform transition hover:scale-105 hover:z-50 border-t-8 border-yellow-400">
+                    <div class="font-bold text-lg mb-2 font-heading" data-i18n="bench.note1.title"></div>
+                    <p class="text-sm" data-i18n="bench.note1.body"></p>
+                    <i class="ph ph-robot-xl absolute bottom-2 right-2 text-4xl text-yellow-500/20"></i>
+                </div>
+                <div class="md:absolute md:bottom-10 md:left-1/4 bg-[#e0f2fe] text-zinc-900 p-5 rounded-sm shadow-xl md:rotate-2 w-64 transform transition hover:scale-105 hover:z-50 border-t-8 border-sky-400">
+                    <div class="font-bold text-lg mb-2 font-heading" data-i18n="bench.note2.title"></div>
+                    <p class="text-sm" data-i18n="bench.note2.body"></p>
+                    <i class="ph ph-cpu absolute bottom-2 right-2 text-4xl text-sky-500/20"></i>
+                </div>
+                <div class="md:absolute md:top-5 md:right-20 glass-card border border-copper/50 p-5 rounded text-white shadow-xl md:rotate-6 w-64 transform transition hover:scale-105 hover:z-50">
+                    <div class="font-bold text-lg mb-2 font-heading text-copper" data-i18n="bench.note3.title"></div>
+                    <p class="text-sm text-zinc-300" data-i18n="bench.note3.body"></p>
+                    <i class="ph ph-eye absolute bottom-2 right-2 text-4xl text-copper/20"></i>
+                </div>
+                <div class="md:absolute md:bottom-20 md:right-10 bg-[#dcfce7] text-zinc-900 p-5 rounded-sm shadow-xl md:-rotate-6 w-64 transform transition hover:scale-105 hover:z-50 border-t-8 border-green-400">
+                    <div class="font-bold text-lg mb-2 font-heading" data-i18n="bench.note4.title"></div>
+                    <p class="text-sm" data-i18n="bench.note4.body"></p>
+                    <i class="ph ph-users-three absolute bottom-2 right-2 text-4xl text-green-500/20"></i>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 bg-graphite-light/40 border-y border-graphite-lighter/50 shadow-inner -z-0"></div>
+    </section>
+
+    <footer class="bg-graphite border-t border-graphite-lighter py-16">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+            <div class="text-copper mb-8">
+                <i class="ph ph-circuitry text-4xl"></i>
+            </div>
+            <p class="text-xl md:text-2xl font-heading font-medium text-white max-w-2xl leading-relaxed mb-10" data-i18n-html="footer.quoteHtml"></p>
+            <div class="flex gap-6 mb-12">
+                <a href="https://github.com/rxluk" class="text-zinc-400 hover:text-white transition-colors flex flex-col items-center gap-1 group">
+                    <div class="w-12 h-12 rounded-full glass-card flex items-center justify-center group-hover:border-zinc-300 transition-colors">
+                        <i class="ph ph-github-logo text-xl"></i>
+                    </div>
+                    <span class="text-xs font-mono" data-i18n="footer.github"></span>
+                </a>
+                <a href="https://www.linkedin.com/in/rxluk/" class="text-zinc-400 hover:text-blue-400 transition-colors flex flex-col items-center gap-1 group">
+                    <div class="w-12 h-12 rounded-full glass-card flex items-center justify-center group-hover:border-blue-400 transition-colors">
+                        <i class="ph ph-linkedin-logo text-xl"></i>
+                    </div>
+                    <span class="text-xs font-mono" data-i18n="footer.linkedin"></span>
+                </a>
+                <a href="mailto:lucasg.exe@gmail.com" class="text-zinc-400 hover:text-copper transition-colors flex flex-col items-center gap-1 group">
+                    <div class="w-12 h-12 rounded-full glass-card flex items-center justify-center group-hover:border-copper transition-colors">
+                        <i class="ph ph-envelope-simple text-xl"></i>
+                    </div>
+                    <span class="text-xs font-mono" data-i18n="footer.email"></span>
+                </a>
+            </div>
+            <div class="w-full border-t border-graphite-lighter pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-mono text-zinc-500">
+                <p data-i18n="footer.copyright"></p>
+                <p class="mt-2 md:mt-0" data-i18n="footer.tagline"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.classList.remove('ph-x');
+                mobileMenuIcon.classList.add('ph-list');
+            } else {
+                mobileMenuIcon.classList.remove('ph-list');
+                mobileMenuIcon.classList.add('ph-x');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            document.querySelectorAll('.mobile-link').forEach((link) => {
+                if (link === e.target || link.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuIcon.classList.remove('ph-x');
+                    mobileMenuIcon.classList.add('ph-list');
+                }
+            });
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.md\\:absolute');
+            const mouseX = e.clientX / window.innerWidth - 0.5;
+            const mouseY = e.clientY / window.innerHeight - 0.5;
+            if (window.innerWidth > 768) {
+                cards.forEach((card, index) => {
+                    const depth = (index + 1) * 10;
+                    const moveX = mouseX * depth;
+                    const moveY = mouseY * depth;
+                    let rotation = "0deg";
+                    if (card.classList.contains('md:-rotate-3')) rotation = "-3deg";
+                    if (card.classList.contains('md:rotate-2')) rotation = "2deg";
+                    if (card.classList.contains('md:rotate-6')) rotation = "6deg";
+                    if (card.classList.contains('md:-rotate-6')) rotation = "-6deg";
+                    card.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${rotation})`;
+                });
+            }
+        });
+    </script>
+
+    <script src="js/i18n-strings.js"></script>
+    <script src="data/content.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

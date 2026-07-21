@@ -1,0 +1,162 @@
+body {
+    background-color: #121212;
+    color: #E5E5E5;
+}
+
+/* Textura de papel milimetrado / base de engenharia */
+.engineering-grid {
+    background-size: 40px 40px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-position: center center;
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #171717; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C07F45; }
+
+/* Linha da timeline */
+.timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    width: 2px;
+    background: linear-gradient(to bottom, #C07F45, #262626);
+    z-index: 0;
+}
+@media (min-width: 768px) {
+    .timeline-line::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Animações sutis de entrada */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Efeito de vidro / acrílico para cards */
+.glass-card {
+    background: rgba(38, 38, 38, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Ilustração SVG dinâmica */
+.svg-draw path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 3s ease-in-out forwards;
+}
+@keyframes dash { to { stroke-dashoffset: 0; } }
+
+/* ---- Estilos para conteúdo gerado via JS (projetos/experiências) ---- */
+
+.skeleton {
+    background: linear-gradient(90deg, #1f1f1f 25%, #2a2a2a 37%, #1f1f1f 63%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.4s ease infinite;
+    border-radius: 4px;
+}
+@keyframes skeleton-loading {
+    0% { background-position: 100% 50%; }
+    100% { background-position: 0 50%; }
+}
+
+.project-carousel {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+    background: #262626;
+}
+.project-carousel img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.project-carousel img.is-active { opacity: 1; }
+
+.project-carousel-dots {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    z-index: 20;
+}
+.project-carousel-dots button {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.35);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+.project-carousel-dots button.is-active {
+    background: #C07F45;
+    transform: scale(1.3);
+}
+
+.project-carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.45);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+.project-carousel:hover .project-carousel-nav { opacity: 1; }
+.project-carousel-nav:hover { background: #C07F45; }
+.project-carousel-nav.prev { left: 8px; }
+.project-carousel-nav.next { right: 8px; }
+
+/* Botões de idioma PT/EN */
+.lang-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #71717a;
+    background: transparent;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.lang-btn:hover {
+    color: #E5E5E5;
+}
+.lang-btn.is-active-lang {
+    color: #C07F45;
+    background: rgba(192, 127, 69, 0.1);
+    border-color: rgba(192, 127, 69, 0.3);
+}

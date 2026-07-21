@@ -1,0 +1,10 @@
+{
+  "name": "portfolio-dinamico",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Portfólio 100% estático (HTML/CSS/JS) com conteúdo orientado a pastas e bilíngue (PT/EN): about/, projects/*, experiences/*.",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node -e \"require('fs').watch('.', {recursive:true}, (e,f) => { if (f && !f.includes('node_modules') && !f.includes('data/content.js') && !f.includes('.git')) { console.log('mudou:', f); require('child_process').execSync('node build.js', {stdio:'inherit'}); } })\""
+  }
+}

@@ -1,0 +1,158 @@
+/* configurações globais */
+body {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #fc4404;
+}
+p, a, li, h1, h2, h3, h4 {
+    font-family: system-ui, sans-serif;
+}
+h2 {
+    color: #fff;
+    background-color: #242424;
+    margin: 0;
+    padding: 10px 0px;
+    border-bottom: 2px solid #fc4404;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+}
+h3 {
+    color: #242424;
+    font-weight: 600;
+    font-size: 1.2em;
+    margin-bottom: 0;
+    padding: 0;
+}
+h4 {
+    color: #666;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #fc4404;
+    font-size: 0.9em;
+}
+h1 {
+    text-align: center;
+    color: white;
+    background-color: #242424;
+    margin: 0 0 15px 0;
+    padding: 50px 0;
+    border-bottom: 3px solid #fc4404;
+}
+.bold {
+    font-weight: 700;
+}
+/* configurações do perfil */
+.profile {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+    align-items: flex-start;
+}
+h1 .title-light {
+    font-weight: 300;
+}
+h1 .title-bold {
+    font-weight: 700;
+}
+.profile-image img {
+    width: 185px;
+    border-radius: 50%;
+    border:5px solid #ccc;
+    margin-top: -102px;
+    z-index: 2;
+}
+.profile-info {
+    padding: 0;
+    margin: 0 0 0 0;
+}
+.profile-info p {
+    text-align: center;
+    margin: 0 0 0 0;
+}
+.profile-info nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+.profile-info nav ul li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.profile-info nav ul li::before {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.profile-info nav ul li.linkedin::before {
+    background-image: url("../icons/icon-linkedin.svg");
+}
+.profile-info nav ul li.github::before {
+    background-image: url("../icons/icon-github.svg");
+}
+.profile-info nav ul li.email::before {
+    background-image: url("../icons/icon-email.svg");
+}
+.sdg figure {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 15px 0;
+    padding: 0;
+}
+.sdg img {
+    width: 150px;
+}
+
+/* configurações do container principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+    color: #333;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin: 0 0 20px 0;
+}
+
+.projects p + p {
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    color: #242424;
+}
+
+.project-gallery figure {
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.project-gallery img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
